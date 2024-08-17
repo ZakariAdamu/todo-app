@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    /* background-color: black; */
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+
+/* #root,
+#__next {
+    isolation: isolate;
+} */
+
+/* App */
+body {
+    background-color: #060014;
+    /* background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png"); */
+    background-image: url(https://www.transparenttextures.com/patterns/cartographer.png);
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    color: white;
+    font-family: "Rubik", sans-serif;
+}
+
+/* container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* todos list */
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 3rem 2rem 2rem;
+}
+
+.todos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 50%;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.todo_status_btn,
+.todo_delete_btn {
+    border: none;
+    padding: 0;
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+    color: white;
+    font-size: 1.6rem;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: scale(1.15);
+    }
+}
+
+.todo_delete_btn {
+    font-size: 1.5rem;
+}
+
+.mutation_btn {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.form {
+    display: flex;
+    gap: 0.5rem;
+    width: 50%;
+    margin: 1rem auto;
+}
+
+.form_input {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    border: none;
+    outline: none;
+
+    &:focus,
+    &:hover {
+        background-color: rgba(221, 219, 226, 1);
+    }
+}
+
+.submit_btn {
+    border: none;
+    background-color: rgba(143, 88, 165, 0.4);
+    cursor: pointer;
+    color: aliceblue;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: rgba(192, 188, 201, 0.5);
+    }
+}
+
+@media (width <=920px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .form {
+        width: 65%;
+    }
+
+    .todo {
+        width: 65%;
+        margin: 0.1rem auto;
+        place-self: center;
+        font-size: 1.2rem;
+    }
+}
+
+@media (width <=640px){
+.form{
+    width: 95%;
+}
+.todo{
+    width: 95%;
+}
+}
