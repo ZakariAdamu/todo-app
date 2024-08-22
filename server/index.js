@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 // Import built-in modules
-const path = require("path");
+// const path = require("path");
 
 // Import third-party modules
 const express = require("express");
@@ -19,15 +19,19 @@ app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON bodies
 
 // Serve static files from the 'dist' directory
-app.use(express.static(path.join(__dirname, "dist")));
+// app.use(express.static(path.join(__dirname, "dist")));
 
 // Serve the frontend application
-app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "dist/index.html"));
-});
+// app.get("/", (req, res) => {
+// 	res.sendFile(path.join(__dirname, "dist/index.html"));
+// });
 
 // API routes
 app.use("/api", router);
+
+app.get("/", (req, res) => {
+	res.send("Hello todos backend :)");
+});
 
 // Define the server port
 const port = process.env.PORT || 4005;
