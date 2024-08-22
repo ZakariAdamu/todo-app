@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
+import Spinner from "./Spinner";
 import Todo from "./Todo";
 
 export default function App() {
 	const [todos, setTodos] = useState([]);
 	const [content, setContent] = useState("");
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		async function getTodos() {
@@ -17,6 +19,8 @@ export default function App() {
 				setTodos(todos);
 			} catch (error) {
 				console.error("Failed to fetch todos:", error);
+			} finally {
+				setLoading(false);
 			}
 		}
 		getTodos();
@@ -50,27 +54,31 @@ export default function App() {
 
 	return (
 		<div>
-			<main className="container">
-				<h1 className="title">Awesome Todos!</h1>
-				<form onSubmit={createNewTodo} className="form">
-					<input
-						type="text"
-						className="form_input"
-						value={content}
-						onChange={(e) => setContent(e.target.value)}
-						placeholder="Add a new todo..."
-						required
-					/>
-					<button className="submit_btn" type="submit">
-						Create Todo
-					</button>
-				</form>
-				<div className="todos">
-					{todos.map((todo) => (
-						<Todo key={todo._id} todo={todo} setTodos={setTodos} />
-					))}
-				</div>
-			</main>
+			{loading ? (
+				<Spinner loading={loading} />
+			) : (
+				<main className="container">
+					<h1 className="title">Awesome Todos!</h1>
+					<form onSubmit={createNewTodo} className="form">
+						<input
+							type="text"
+							className="form_input"
+							value={content}
+							onChange={(e) => setContent(e.target.value)}
+							placeholder="Add a new todo..."
+							required
+						/>
+						<button className="submit_btn" type="submit">
+							Create Todo
+						</button>
+					</form>
+					<div className="todos">
+						{todos.map((todo) => (
+							<Todo key={todo._id} todo={todo} setTodos={setTodos} />
+						))}
+					</div>
+				</main>
+			)}
 		</div>
 	);
 }
