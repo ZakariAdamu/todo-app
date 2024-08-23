@@ -1,4 +1,4 @@
-// require("dotenv").config();
+require("dotenv").config();
 
 // Import built-in modules
 // const path = require("path");
