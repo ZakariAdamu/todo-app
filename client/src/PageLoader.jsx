@@ -10,10 +10,10 @@ const override = {
 	margin: "100px auto",
 };
 
-const Spinner = ({ loading }) => {
+const PageLoader = ({ loading }) => {
 	return (
 		<PropagateLoader
-			color="#4338ca"
+			color="#839bcf"
 			loading={loading}
 			cssOverride={override}
 			size={20}
@@ -21,4 +21,4 @@ const Spinner = ({ loading }) => {
 	);
 };
 
-export default Spinner;
+export default PageLoader;

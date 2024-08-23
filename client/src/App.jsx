@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
-import Spinner from "./Spinner";
+import PageLoader from "./PageLoader";
 import Todo from "./Todo";
 
 export default function App() {
@@ -55,7 +55,7 @@ export default function App() {
 	return (
 		<div>
 			{loading ? (
-				<Spinner loading={loading} />
+				<PageLoader loading={loading} />
 			) : (
 				<main className="container">
 					<h1 className="title">Awesome Todos!</h1>
